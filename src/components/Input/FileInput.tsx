@@ -20,7 +20,7 @@ import {
   ForwardRefRenderFunction,
   forwardRef,
   useCallback,
-  useEffect,
+  useEffect
 } from 'react';
 import {
   FieldError,
@@ -62,6 +62,7 @@ const FileInputBase: ForwardRefRenderFunction<
   ref
 ) => {
   const toast = useToast();
+
   const [progress, setProgress] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const [cancelToken, setCancelToken] = useState<CancelTokenSource>(
@@ -70,6 +71,7 @@ const FileInputBase: ForwardRefRenderFunction<
 
   const handleImageUpload = useCallback(
     async (event: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
+      console.log("chamando")
       if (!event.target.files?.length) {
         return;
       }
@@ -174,7 +176,7 @@ const FileInputBase: ForwardRefRenderFunction<
                 >
                   <CircularProgressLabel>{progress}%</CircularProgressLabel>
                 </CircularProgress>
-                <Text as="span" pt={2} textAlign="center">
+                <Text  pt="2" textAlign="center" as="span">
                   Enviando...
                 </Text>
               </>
